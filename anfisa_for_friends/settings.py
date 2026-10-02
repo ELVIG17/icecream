@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,7 @@ ROOT_URLCONF = 'anfisa_for_friends.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # ← вот эту строку меняем с [] на это
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -49,6 +50,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'anfisa_for_friends.wsgi.application'
 

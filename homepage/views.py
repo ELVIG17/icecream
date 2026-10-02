@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse('Главная страница')
+    # Django сам найдёт templates/homepage/index.html
+    return render(request, 'homepage/index.html')
