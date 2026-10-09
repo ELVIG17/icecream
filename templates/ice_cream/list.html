@@ -8,9 +8,11 @@
   <ul>
     {% for item in ice_creams %}
       <li>
-        <!-- Ссылка ведёт на ice_cream:ice_cream_detail, передавая item.id как pk -->
+        <!-- Ссылка на детальную страницу -->
         <h3><a href="{% url 'ice_cream:ice_cream_detail' item.id %}">{{ item.title }}</a></h3>
-        <p>{{ item.description }}</p>
+        
+        <!-- ОБРЕЗКА: показываем максимум 10 слов -->
+        <p>{{ item.description|truncatewords:10 }}</p>
       </li>
       
       {% if not forloop.last %}
