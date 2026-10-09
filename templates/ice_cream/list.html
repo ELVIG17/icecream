@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>Анфиса для друзей. Список мороженого</title>
-  </head>
-  <body>
-    <h1>Каталог мороженого</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Анфиса для друзей. Каталог мороженого{% endblock %}
+
+{% block content %}
+  <h1>Каталог мороженого</h1>
+
+  <ul>
+    {% for item in ice_creams %}
+      <li>
+        <h3><a href="{% url 'ice_cream_detail' item.id %}">{{ item.title }}</a></h3>
+        <p>{{ item.description }}</p>
+      </li>
+      {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>Анфиса для друзей. Подробное описание мороженого</title>
-  </head>
-  <body>
-    <h1>Подробное описание мороженого</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Анфиса для друзей. {{ ice_cream.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ ice_cream.title }}</h1>
+  <p>{{ ice_cream.description }}</p>
+{% endblock %}

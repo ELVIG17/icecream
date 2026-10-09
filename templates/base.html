@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <!-- Блок title: дочерние шаблоны будут задавать сюда заголовок вкладки браузера -->
+    <title>{% block title %}Анфиса для друзей{% endblock %}</title>
+  </head>
+  <body>
+    <!-- Подключаем шапку из папки includes -->
+    {% include "includes/header.html" %}
+
+    <!-- Основной контент страницы будет вставляться сюда -->
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Подключаем подвал -->
+    {% include "includes/footer.html" %}
+  </body>
+</html>
