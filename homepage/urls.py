@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 
+app_name = 'homepage' 
+
 urlpatterns = [
-    path('', views.index, name='index'),  # Главная страница приложения homepage
+    # name должен совпадать с именем функции views.index
+    path('', views.index, name='index'),
 ]
