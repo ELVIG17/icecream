@@ -1,15 +1,18 @@
-<header style="padding: 20px; border-bottom: 1px solid #ccc;">
-    <h1>Анфиса для друзей</h1>
+{% load static %}  <!-- Тоже нужно здесь, так как мы используем {% static %} -->
+
+<header style="padding: 20px; border-bottom: 1px solid #eee;">
+  <div class="d-flex align-items-center">
+    <!-- Логотип: путь относительно static_dev -->
+    <img src="{% static 'img/logo.png' %}" alt="Логотип Анфиса" class="me-3" style="height: 50px;">
     
-    <nav>
-      <!-- Ссылка на главную: namespace:homepage + name:index -->
-      <a href="{% url 'homepage:index' %}">Главная</a> | 
+    <div>
+      <h1>Анфиса для друзей</h1>
       
-      <!-- Ссылка на О проекте: namespace:about + name:description -->
-      <a href="{% url 'about:description' %}">О проекте</a> | 
-      
-      <!-- Ссылка на Каталог: namespace:ice_cream + name:ice_cream_list -->
-      <a href="{% url 'ice_cream:ice_cream_list' %}">Каталог мороженого</a>
-    </nav>
-  </header>
-  
+      <nav>
+        <a href="{% url 'homepage:index' %}" class="me-3">Главная</a>
+        <a href="{% url 'about:description' %}" class="me-3">О проекте</a>
+        <a href="{% url 'ice_cream:ice_cream_list' %}" class="me-3">Каталог мороженого</a>
+      </nav>
+    </div>
+  </div>
+</header>
