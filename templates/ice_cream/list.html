@@ -8,10 +8,13 @@
   <ul>
     {% for item in ice_creams %}
       <li>
-        <h3><a href="{% url 'ice_cream_detail' item.id %}">{{ item.title }}</a></h3>
+        <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
       </li>
-      {% if not forloop.last %}<hr>{% endif %}
+      
+      {% if not forloop.last %}
+        <hr>
+      {% endif %}
     {% endfor %}
   </ul>
 {% endblock %}

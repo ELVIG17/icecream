@@ -1,20 +1,16 @@
 from django.shortcuts import render
 
-# Добавляем список каталога в начало файла
+# Глобальный список (должен быть в самом верху файла)
 ice_cream_catalog = [
     {
         'id': 0,
         'title': 'Классический пломбир',
-        'description': 'Настоящее мороженое, '
-                       'для истинных ценителей вкуса. '
-                       'Если на столе появляется пломбир'
-                       ' — это не надолго.',
+        'description': 'Настоящее мороженое, для истинных ценителей вкуса. Если на столе появляется пломбир — это не надолго.',
     },
     {
         'id': 1,
         'title': 'Мороженое с кузнечиками',
-        'description': 'В колумбийском стиле: мороженое '
-                       'с добавлением настоящих карамелизованных кузнечиков.',
+        'description': 'В колумбийском стиле: мороженое с добавлением настоящих карамелизованных кузнечиков.',
     },
     {
         'id': 2,
@@ -24,22 +20,14 @@ ice_cream_catalog = [
 ]
 
 def ice_cream_list(request):
-    """Отображает список всех видов мороженого"""
     template = 'ice_cream/list.html'
+    # ВАЖНО: ключ словаря должен быть 'ice_creams', чтобы шаблон мог его перебрать
     context = {'ice_creams': ice_cream_catalog}
     return render(request, template, context)
 
 
 def ice_cream_detail(request, pk):
-    """
-    Отображает детальную страницу мороженого по ID (pk).
-    По условию: если ID не существует — пусть будет ошибка list index out of range.
-    """
     template = 'ice_cream/detail.html'
-    # Берем элемент из списка по индексу pk
     ice_cream = ice_cream_catalog[pk]
-    
-    context = {
-        'ice_cream': ice_cream
-    }
+    context = {'ice_cream': ice_cream}
     return render(request, template, context)
